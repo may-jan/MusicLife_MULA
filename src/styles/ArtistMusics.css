@@ -1,0 +1,42 @@
+.ArtistMusics > div {
+  margin: 30px;
+}
+
+.ArtistMusics_title {
+  width: 300px;
+  height: 20px;
+  line-height: 20px;
+  font-size: var(--font-size-m);
+}
+
+.ArtistMusics_list {
+  height: 160px;
+  margin-top: 10px;
+}
+
+.ArtistMusics_list_wrap {
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.ArtistMusics_list_wrap::-webkit-scrollbar {
+  height: 8px;
+  background-color: var(--light-gray-color);
+  border-radius: 20px;
+}
+
+.ArtistMusics_list_wrap::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: var(--main-color);
+  border-radius: 20px;
+}
+
+.noTracks {
+  height: 160px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-m);
+  color: var(--gray-color);
+}

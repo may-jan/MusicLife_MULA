@@ -1,0 +1,124 @@
+.Music {
+  width: 360px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =============== Music_colorBox =============== */
+.Music_colorBox {
+  background-color: var(--main-color);
+  width: 100%;
+  height: 210px;
+}
+
+/* =============== Music_albumImg_wrap =============== */
+/* .Music_albumImg_wrap {
+  width: 100%;
+  height: 240px;
+  position: absolute;
+  top: 88px;
+  display: flex;
+  justify-content: center;
+} */
+
+.Music_albumImg {
+  width: 240px;
+  height: 240px;
+  margin-top: -120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.Music_albumImg img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+}
+
+/* =============== Music_info =============== */
+.Music_info {
+  width: 100%;
+  height: 65px;
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Music_info > div {
+  width: 300px;
+  text-align: center;
+}
+
+.Music_trackName {
+  font-size: 22px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.Music_artistName {
+  font-size: var(--font-size-m);
+  height: 25px;
+  line-height: 25px;
+}
+
+/* =============== Music_player =============== */
+.Music_player {
+  width: 300px;
+  height: 125px;
+  margin-top: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Music_preview {
+  height: 15px;
+  line-height: 15px;
+  font-size: var(--font-size-m);
+  color: var(--gray-color);
+}
+
+.Music_playBtn {
+  width: 74px;
+  height: 74px;
+}
+
+.Music_playBtn button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Music_playBtn button svg {
+  width: 74px;
+  height: 74px;
+  color: var(--main-color);
+}
+
+.Music_progressBar {
+  position: relative;
+  width: 100px;
+  height: 10px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  position: absolute;
+  width: 8px;
+  height: 6px;
+  top: 2px;
+  margin-left: 2px;
+  border-radius: 10px;
+  background-color: #fff;
+}

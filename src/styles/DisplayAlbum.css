@@ -1,0 +1,39 @@
+.DisplayAlbum {
+  width: 120px;
+  height: 152px;
+  float: left;
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+.dpAlbum_albumImg {
+  background-color: #ddd;
+  width: 120px;
+  max-height: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dpAlbum_albumImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.dpAlbum_albumName {
+  height: 11px;
+  line-height: 11px;
+  margin-top: 7px;
+  font-size: var(--font-size-s);
+}
+
+.dpAlbum_albumArtist {
+  height: 10px;
+  line-height: 10px;
+  margin-top: 4px;
+  font-size: var(--font-size-xs);
+}
+
+.dpAlbum_albumName,
+.dpAlbum_albumArtist {
+  width: 120px;
+}

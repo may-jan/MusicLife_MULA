@@ -1,0 +1,49 @@
+.AlbumInfo {
+  width: 360px;
+  height: 290px;
+  position: relative;
+}
+
+.AlbumInfo > div {
+  position: absolute;
+}
+
+.AlbumInfo_albumImg {
+  width: 360px;
+  height: 290px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AlbumInfo_albumImg img {
+  width: 360px;
+}
+
+.AlbumInfo_albumImg_shadow {
+  width: 360px;
+  height: 290px;
+  background-color: var(--light-gray-color);
+  opacity: 50%;
+}
+
+.AlbumInfo_albumArtist,
+.AlbumInfo_albumName {
+  left: 30px;
+}
+
+.AlbumInfo_albumName {
+  width: 300px;
+  height: auto;
+  bottom: 50px;
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
+
+.AlbumInfo_albumArtist {
+  width: 300px;
+  height: auto;
+  bottom: 30px;
+  font-size: var(--font-size-s);
+}

@@ -1,0 +1,43 @@
+.RecommendPlaylists,
+.loginRequest {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.RecommendPlaylists h4 {
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 40px;
+  font-size: var(--font-size-l);
+}
+
+.RecommendPlaylist {
+  margin-bottom: 50px;
+  width: 300px;
+}
+
+.RecommendPlaylist a {
+  text-align: center;
+}
+
+.RecommendPlaylist img {
+  border-radius: 15px;
+}
+
+.RecommendPlaylists_playlistName {
+  font-size: var(--font-size-l);
+}
+
+.RecommendPlaylists_playlistDes {
+  font-size: var(--font-size-m);
+  color: var(--gray-color);
+}
+
+.loginRequest {
+  height: 450px;
+  font-size: var(--font-size-l);
+}

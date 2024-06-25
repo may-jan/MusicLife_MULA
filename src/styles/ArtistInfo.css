@@ -1,0 +1,76 @@
+.ArtistInfo {
+  width: 360px;
+  height: 290px;
+  position: relative;
+}
+
+.ArtistInfo > div {
+  position: absolute;
+}
+
+.ArtistsInfo_artistImg {
+  width: 360px;
+  height: 290px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ArtistsInfo_artistImg img {
+  width: 360px;
+}
+
+.ArtistsInfo_shadow {
+  width: 360px;
+  height: 290px;
+  background-color: var(--light-gray-color);
+  opacity: 50%;
+}
+
+.ArtistsInfo_artistName,
+.ArtistsInfo {
+  left: 30px;
+}
+
+.ArtistsInfo_artistName {
+  width: 300px;
+  height: auto;
+  bottom: 50px;
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
+
+.ArtistsInfo {
+  width: 300px;
+  bottom: 30px;
+  font-size: var(--font-size-s);
+  display: flex;
+  white-space: nowrap;
+}
+
+.ArtistsInfo_genres {
+  overflow: hidden;
+}
+
+.ArtistsInfo_genre {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.genre.attachName span {
+  display: inline-block;
+}
+
+.ArtistsInfo_genre::before {
+  content: '|';
+  margin: 7px;
+}
+
+.ArtistsInfo_genre span::after {
+  margin-right: 3px;
+}
+
+.ArtistsInfo_genre span:last-child::after {
+  margin-right: 0;
+}

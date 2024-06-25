@@ -1,0 +1,24 @@
+.text_wrapper {
+  width: auto;
+}
+
+.text_flow {
+  display: inline-block;
+  animation: flowing 1s linear infinite;
+}
+
+.text_overflow:hover .text_flow {
+  animation-play-state: paused;
+}
+
+@keyframes flowing {
+  0% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
