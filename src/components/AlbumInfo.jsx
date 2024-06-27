@@ -52,10 +52,7 @@ const AlbumInfo = () => {
         <TextFlow text={albumInfo.albumName} />
       </div>
       <div className='AlbumInfo_albumArtist attachName'>
-        {albumInfo.albumArtist &&
-          albumInfo.albumArtist.map((artist) => (
-            <span key={artist.id}>{artist.name}</span>
-          ))}
+        <TextFlow text={albumInfo.albumArtist} />
       </div>
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
     </div>
