@@ -90,10 +90,7 @@ const Music = () => {
           <TextFlow text={musicInfo.trackName} />
         </div>
         <div className='Music_artistName text_overflow attachName'>
-          {musicInfo.artistName &&
-            musicInfo.artistName.map((artist) => {
-              return <span key={artist.id}>{artist.name}</span>;
-            })}
+          <TextFlow text={musicInfo.artistName} />
         </div>
       </div>
 
