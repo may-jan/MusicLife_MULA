@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/TextFlow.css';
 
-const TextFlow = ({ text }) => {
+const TextFlow = ({ text, type }) => {
   const titleRef = useRef(null);
   const containerRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -24,6 +24,22 @@ const TextFlow = ({ text }) => {
     checkOverflow();
   }, [text]);
 
+  const renderText = () => {
+    if (type === 'genre') {
+      return text && Array.isArray(text)
+        ? text.map((gen) => {
+            return <span key={gen}>{gen}</span>;
+          })
+        : text;
+    } else {
+      return text && Array.isArray(text)
+        ? text.map((txt) => {
+            return <span key={txt.id}>{txt.name}</span>;
+          })
+        : text;
+    }
+  };
+
   return (
     <div className='text_wrapper' ref={containerRef}>
       <div
@@ -31,7 +47,7 @@ const TextFlow = ({ text }) => {
         ref={titleRef}
         style={{ animationDuration }}
       >
-        {text}
+        {renderText()}
       </div>
     </div>
   );
