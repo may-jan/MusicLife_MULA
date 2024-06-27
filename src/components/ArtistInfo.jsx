@@ -43,16 +43,15 @@ const ArtistInfo = () => {
         <div className='ArtistsInfo_followers'>
           followers : {artistInfo && artistInfo.followers.total}
         </div>
-        <div className='ArtistsInfo_genres'>
-          {artistInfo && artistInfo.genres.length ? (
-            <div className='ArtistsInfo_genre attachName'>
-              {artistInfo.genres &&
-                artistInfo.genres.map((gen) => <span key={gen}>{gen}</span>)}
+        {artistInfo && artistInfo.genres.length ? (
+          <div className='ArtistsInfo_genres'>
+            <div className='ArtistsInfo_genre text_overflow attachName '>
+              <TextFlow text={artistInfo.genres} type='genre' />
             </div>
-          ) : (
-            ''
-          )}
-        </div>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
     </div>
