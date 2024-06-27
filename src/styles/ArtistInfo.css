@@ -47,27 +47,24 @@
   font-size: var(--font-size-s);
   display: flex;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .ArtistsInfo_genres {
+  display: flex;
   overflow: hidden;
 }
 
-.ArtistsInfo_genre {
-  text-overflow: ellipsis;
-  overflow: hidden;
+.ArtistsInfo_genres::before {
+  content: '|';
+  margin: 0 7px;
 }
 
-.genre.attachName span {
+.ArtistsInfo_genre span {
   display: inline-block;
 }
 
-.ArtistsInfo_genre::before {
-  content: '|';
-  margin: 7px;
-}
-
-.ArtistsInfo_genre span::after {
+.ArtistsInfo_genre span {
   margin-right: 3px;
 }
 
