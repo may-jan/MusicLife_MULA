@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+<h1>MusicLife MURA</h1>
+<img src='public/logo192.png' width='200' alt='logo'/>
+🔗 배포 URL : <a href='https://musiclife-mura.netlify.app/'>MURA</a>
+<br/>
+<br/>
+일상에서 음악을 뗄 수 없을 만큼 좋아하는 마음에서 소소하게 시작해 본 프로젝트입니다<br/>
+스포티파이의 API를 통해 음악을 탐색하고 즐길 수 있도록 도와줍니다<br/>
+주로 모바일을 통해 음악을 듣기 때문에 모바일 버전으로 만들었으며, 이 어플을 사용하기 위해서는 스포티파이 계정이 필요합니다
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
+<br/>
 
-## Available Scripts
+# 목차
 
-In the project directory, you can run:
+[1. 구현 내용](#구현-내용)
 
-### `npm start`
+[2. 실행](#실행)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[3. 기술 스택](#기술-스택)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[4. 스크린샷](#스크린샷)
 
-### `npm test`
+[5. 프로젝트 구조](#프로젝트-구조)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
+<br/>
 
-### `npm run build`
+# 구현 내용
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 스포티파이 API와 axios를 활용하여 아티스트 정보 및 곡 정보를 받아옵니다
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- react-router-dom과 useNavigate를 통해 페이지를 이동합니다
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- useContext, sessionStorage, localStorage를 통해 데이터를 관리합니다
 
-### `npm run eject`
+- 재접속 시 로그인 상태를 초기화하기 위해 로그인에 사용되는 토큰을 sessionStorage에 저장합니다
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- ReactHooks를 활용하여 무분별한 리렌더링 방지, 데이터의 변화를 저장 및 변경, 현재 데이터의 상태를 파악합니다
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 로그인, 로그아웃
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - 로그인 여부에 따른 초기 화면<br/>
+    로그인❌ → 로그인 안내<br/>
+    로그인⭕ → 검색창과 추천 플레이리스트<br/><br/>
+  - 자동 로그아웃<br/>
+    스포티파이 API는 로그인 후 1시간이 경과하면 해당 토큰을 사용할 수 없습니다<br/>
+    때문에 사용자가 예고 없이 어플을 사용할 수 없는 상황이 발생합니다<br/>
+    이를 해결하기 위해 로그인 후 1시간이 경과하면 자동으로 로그아웃 되도록 설정했습니다<br/>
+    <i>( sessionStorage와 localStorage 초기화 → 자동 로그아웃 alert 창 표시 → 초기 화면으로 이동 )</i>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- text가 길어져 해당 공간을 넘어가면 text가 옆으로 흘러갑니다
 
-## Learn More
+- 아티스트 검색 : 아티스트 이름을 검색하여 찾을 수 있습니다
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 아티스트 정보 : 아티스트 이미지, 팔로워 수, 장르를 확인할 수 있습니다
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 인기 트랙 및 앨범 : 아티스트의 인기 트랙과 앨범을 확인할 수 있습니다
 
-### Code Splitting
+- 앨범 트랙리스트 : 앨범의 트랙 리스트를 확인할 수 있습니다
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- 음악 미리 듣기 : 음악 페이지에서 30초 미리 듣기가 가능합니다
 
-### Analyzing the Bundle Size
+- sweetalert2를 통한 alert 창 구현
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br/>
+<br/>
 
-### Making a Progressive Web App
+# 실행
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+필수조건 : `Node.js` , `npm` or `yarn`
 
-### Advanced Configuration
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+$ git clone https://github.com/may-jan/MusicLife_MURA.git
+```
 
-### Deployment
+```bash
+$ npm install   or  $ yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+$ npm start   or   $ yarn start
+```
 
-### `npm run build` fails to minify
+<br/>
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 기술 스택
+
+![React](https://img.shields.io/badge/react-45DAFB.svg?style=for-the-badge&logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)<br/>
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)<br/><br/>
+
+<br/>
+<br/>
+
+# 스크린샷
+
+<div align='center'>
+<p>초기 화면 (로그인❌)</p>
+<img src='public/screenshot_01.png' width='400' alt='screenshot_01'/>
+<br/><br/>
+
+<p>초기 화면 (로그인⭕)</p>
+<img src='public/screenshot_02.png' width='400' alt='screenshot_02'/>
+<br/><br/>
+
+<p>아티스트 검색</p>
+<img src='public/screenshot_03.png' width='400' alt='screenshot_03'/>
+<br/><br/>
+
+<p>아티스트 정보와 인기곡, 앨범</p>
+<img src='public/screenshot_04.png' width='400' alt='screenshot_04'/>
+<br/><br/>
+
+<p>앨범 트랙</p>
+<img src='public/screenshot_05.png' width='400' alt='screenshot_05'/>
+<br/><br/>
+
+<p>곡 화면, 미리 듣기 재생</p>
+<img src='public/screenshot_06.png' width='400' alt='screenshot_06'/>
+<br/><br/>
+
+<p>text가 공간을 넘치는 경우 흐르는 형태</p>
+<img src='public/screenshot_07.gif' width='400' alt='screenshot_07'/>
+</div>
+
+<br/>
+<br/>
+
+# 프로젝트 구조
+
+<div align='center'>
+<img src='public/project_structure.png' width='900' alt='project_structure'>
+</div>
+
+<br/>
+<br/>
