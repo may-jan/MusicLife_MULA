@@ -19,7 +19,6 @@ const Albums = () => {
         setAlbums(res.data.items);
       })
       .catch((e) => {
-        console.log(e);
         console.log('Albums에러');
       });
   };

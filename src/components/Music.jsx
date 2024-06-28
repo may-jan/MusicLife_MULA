@@ -35,7 +35,7 @@ const Music = () => {
         });
       })
       .catch((e) => {
-        console.log('Music 오류', e);
+        console.log('Music 오류');
       });
   };
 

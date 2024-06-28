@@ -29,7 +29,6 @@ const ArtistInfo = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setArtistInfo(res.data);
       })
       .catch((e) => {

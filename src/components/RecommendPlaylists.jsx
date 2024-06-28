@@ -19,7 +19,7 @@ const RecommendPlaylists = () => {
         setPlaylists(res.data.playlists.items);
       })
       .catch((e) => {
-        console.log('RecommendPlaylists 에러 ', e);
+        console.log('RecommendPlaylists 에러');
       });
   };
 

@@ -20,7 +20,7 @@ const AlbumTracks = () => {
         setTrackList(res.data.items);
       })
       .catch((e) => {
-        console.log('GetAlbumTracks 에러', e);
+        console.log('GetAlbumTracks 에러');
       });
   };
 
