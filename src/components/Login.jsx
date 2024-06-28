@@ -5,7 +5,7 @@ import { RiLogoutCircleRLine } from 'react-icons/ri';
 
 const Login = () => {
   const CLIENT_ID = 'f4b4bacfdfbf44f89d8fa4a067ded1ba';
-  const REDIRECT_URI = 'https://musiclife-mura.netlify.app';
+  const REDIRECT_URI = 'https://musiclife-mula.netlify.app';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
 

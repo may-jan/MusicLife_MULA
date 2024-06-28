@@ -1,6 +1,6 @@
-<h1>MusicLife MURA</h1>
+<h1>MusicLife MULA</h1>
 <img src='public/logo192.png' width='200' alt='logo'/>
-🔗 배포 URL : <a href='https://musiclife-mura.netlify.app/'>MURA</a>
+🔗 배포 URL : <a href='https://musiclife-mula.netlify.app/'>MULA</a>
 <br/>
 <br/>
 일상에서 음악을 뗄 수 없을 만큼 좋아하는 마음에서 소소하게 시작해 본 프로젝트입니다<br/>
@@ -72,7 +72,7 @@
 <br/>
 
 ```bash
-$ git clone https://github.com/may-jan/MusicLife_MURA.git
+$ git clone https://github.com/may-jan/MusicLife_MULA.git
 ```
 
 ```bash
