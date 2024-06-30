@@ -102,32 +102,25 @@ $ npm start   or   $ yarn start
 # 스크린샷
 
 <div align='center'>
-<p>초기 화면 (로그인❌)</p>
-<img src='public/screenshot_01.png' width='400' alt='screenshot_01'/>
-<br/><br/>
+<img src='public/screenshot_01.png' width='750' alt='screenshot_01'/>
+<br/>
+<br/>
+<br/>
 
-<p>초기 화면 (로그인⭕)</p>
-<img src='public/screenshot_02.png' width='400' alt='screenshot_02'/>
-<br/><br/>
+<img src='public/screenshot_02.png' width='750' alt='screenshot_02'/>
+<br/>
+<br/>
+<br/>
 
-<p>아티스트 검색</p>
-<img src='public/screenshot_03.png' width='400' alt='screenshot_03'/>
-<br/><br/>
+<img src='public/screenshot_03.png' width='750' alt='screenshot_03'/>
+<br/>
+<br/>
+<br/>
 
-<p>아티스트 정보와 인기곡, 앨범</p>
-<img src='public/screenshot_04.png' width='400' alt='screenshot_04'/>
-<br/><br/>
-
-<p>앨범 트랙</p>
-<img src='public/screenshot_05.png' width='400' alt='screenshot_05'/>
-<br/><br/>
-
-<p>곡 화면, 미리 듣기 재생</p>
-<img src='public/screenshot_06.png' width='400' alt='screenshot_06'/>
-<br/><br/>
+<img src='public/screenshot_04.gif' width='500' alt='screenshot_04'/>
+<br/>
 
 <p>text가 공간을 넘치는 경우 흐르는 형태</p>
-<img src='public/screenshot_07.gif' width='400' alt='screenshot_07'/>
 </div>
 
 <br/>
