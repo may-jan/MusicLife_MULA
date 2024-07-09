@@ -1,6 +1,6 @@
 import React from 'react';
-import AlbumInfo from './AlbumInfo';
-import AlbumTracks from './AlbumTracks';
+import AlbumInfo from '../components/AlbumInfo';
+import AlbumTracks from '../components/AlbumTracks';
 
 const AlbumList = () => {
   return (

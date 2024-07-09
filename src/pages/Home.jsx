@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header';
-import SearchTab from './SearchTab';
-import Result from './Result';
+import Header from '../components/Header';
+import SearchTab from '../components/SearchTab';
+import Result from '../components/Result';
 import '../styles/Home.css';
 
 const Home = () => {

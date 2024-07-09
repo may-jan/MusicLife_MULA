@@ -3,7 +3,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoPlayCircleSharp } from 'react-icons/io5';
 import { IoPauseCircleSharp } from 'react-icons/io5';
-import TextFlow from './TextFlow';
+import TextFlow from '../utils/TextFlow';
 import axios from 'axios';
 import '../styles/Music.css';
 

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
 import { MusicContext } from '../context/Context';
 import '../styles/ArtistInfo.css';
-import TextFlow from './TextFlow';
+import TextFlow from '../utils/TextFlow';
 import axios from 'axios';
 
 const ArtistInfo = () => {

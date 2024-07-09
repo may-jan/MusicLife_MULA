@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import '../styles/AlbumTracks.css';
-import TextFlow from './TextFlow';
+import TextFlow from '../utils/TextFlow';
 
 const AlbumTracks = () => {
   const { id } = useParams();

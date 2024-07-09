@@ -3,7 +3,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/AlbumInfo.css';
-import TextFlow from './TextFlow';
+import TextFlow from '../utils/TextFlow';
 
 const AlbumInfo = () => {
   const { id } = useParams();

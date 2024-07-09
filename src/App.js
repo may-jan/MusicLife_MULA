@@ -2,10 +2,10 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MusicContext } from './context/Context';
 import { useEffect, useState } from 'react';
-import Home from './components/Home';
-import Artist from './components/Artist';
-import Album from './components/Album';
-import Music from './components/Music';
+import Home from './pages/Home';
+import Artist from './pages/Artist';
+import Album from './pages/Album';
+import Music from './pages/Music';
 import Swal from 'sweetalert2';
 
 function App() {

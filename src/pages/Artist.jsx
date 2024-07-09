@@ -1,6 +1,6 @@
 import React from 'react';
-import ArtistInfo from './ArtistInfo';
-import ArtistMusics from './ArtistMusics';
+import ArtistInfo from '../components/ArtistInfo';
+import ArtistMusics from '../components/ArtistMusics';
 
 const Artist = () => {
   return (
