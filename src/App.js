@@ -6,7 +6,10 @@ import Home from './pages/Home';
 import Artist from './pages/Artist';
 import Album from './pages/Album';
 import Music from './pages/Music';
+import Mypage from './pages/Mypage';
 import Swal from 'sweetalert2';
+import PlayLists from './pages/PlayLists';
+import LikeLists from './pages/LikeLists';
 
 function App() {
   const [searchResults, setSearchResults] = useState({});
@@ -58,6 +61,9 @@ function App() {
             <Route path='/artist/:id' element={<Artist />} />
             <Route path='/album/:id' element={<Album />} />
             <Route path='/music/:id' element={<Music />} />
+            <Route path='/mypage' element={<Mypage />} />
+            <Route path='/playlists' element={<PlayLists />} />
+            <Route path='/likelists' element={<LikeLists />} />
           </Routes>
         </BrowserRouter>
       </MusicContext.Provider>
