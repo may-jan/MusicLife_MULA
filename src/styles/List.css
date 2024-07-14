@@ -1,0 +1,66 @@
+.List {
+  width: 360px;
+  height: 66px;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.List_wrap {
+  display: flex;
+  align-items: center;
+}
+
+.List_trackNum {
+  width: 30px;
+  height: 36px;
+  font-size: var(--font-size-m);
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.List_albumImg {
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+  border-radius: 3px;
+  position: relative;
+}
+
+.List_albumImg img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.List_album_wrap {
+  width: 270px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.List_album_wrap_paddingLeft {
+  padding-left: 10px;
+}
+
+.List_albumName {
+  height: 20px;
+  line-height: 20px;
+  font-size: var(--font-size-m);
+}
+
+.List_albumArtist {
+  height: 11px;
+  line-height: 11px;
+  font-size: var(--font-size-s);
+}
