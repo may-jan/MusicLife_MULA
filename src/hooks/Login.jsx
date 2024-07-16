@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Login.css';
 import { BiSolidUser } from 'react-icons/bi';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
+import { RiUserSettingsLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const CLIENT_ID = 'f4b4bacfdfbf44f89d8fa4a067ded1ba';
@@ -45,9 +47,14 @@ const Login = () => {
             <BiSolidUser className='icon_login' />
           </a>
         ) : (
-          <button className='btn_logout' onClick={logout}>
-            <RiLogoutCircleRLine className='icon_logout' />
-          </button>
+          <div className='loginHeader'>
+            <Link to='/mypage' className='btn_mypage'>
+              <RiUserSettingsLine className='icon_mypage' />
+            </Link>
+            <button className='btn_logout' onClick={logout}>
+              <RiLogoutCircleRLine className='icon_logout' />
+            </button>
+          </div>
         )}
       </div>
     </div>
