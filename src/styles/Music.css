@@ -122,3 +122,26 @@
   border-radius: 10px;
   background-color: #fff;
 }
+
+/* =============== Music_btns =============== */
+.Music_btns {
+  width: 75px;
+  height: 30px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon_heart,
+.icon_emptyHeart,
+.icon_addMusic {
+  width: 30px;
+  height: 30px;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.icon_emptyHeart {
+  stroke-width: 20px;
+}
