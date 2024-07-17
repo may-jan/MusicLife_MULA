@@ -3,6 +3,9 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoPlayCircleSharp } from 'react-icons/io5';
 import { IoPauseCircleSharp } from 'react-icons/io5';
+import { PiMusicNotesPlusFill } from 'react-icons/pi';
+import { IoIosHeart } from 'react-icons/io';
+import { IoIosHeartEmpty } from 'react-icons/io';
 import TextFlow from '../utils/TextFlow';
 import axios from 'axios';
 import '../styles/Music.css';
@@ -77,6 +80,32 @@ const Music = () => {
     setIsPlaying(!isPlaying);
   };
 
+  // 하트 버튼 (찜하기 되어있는 상태)
+  const clickHeartBtn = () => {
+    const test = window.confirm('찜한 목록에서 삭제하시겠습니까?');
+    if (test) {
+      console.log('확인누름');
+    } else {
+      console.log('취소누름');
+    }
+  };
+
+  // 빈하트 버튼 (찜하기 안되어있는 상태)
+  const clickEmptyHeartBtn = () => {
+    const test = window.confirm('찜한 목록에 추가하시겠습니까?');
+    if (test) {
+      console.log('확인누름');
+    } else {
+      console.log('취소누름');
+    }
+  };
+
+  // 플레이리스트 추가하기 버튼
+  const clickAddMusicBtn = () => {
+    alert('플레이리스트에 추가되었습니다');
+    console.log('플레이리스트 추가 버튼 클릭');
+  };
+
   return (
     <div className='Music'>
       <div className='Music_colorBox'></div>
@@ -105,6 +134,18 @@ const Music = () => {
           <div className='progress' style={{ left: `${progress}%` }}></div>
         </div>
         <audio ref={audioRef} src={musicInfo.preview}></audio>
+      </div>
+
+      <div className='Music_btns'>
+        {/* <IoIosHeart className='icon_heart' onClick={clickHeartBtn} /> */}
+        <IoIosHeartEmpty
+          className='icon_emptyHeart'
+          onClick={clickEmptyHeartBtn}
+        />
+        <PiMusicNotesPlusFill
+          className='icon_addMusic'
+          onClick={clickAddMusicBtn}
+        />
       </div>
 
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
