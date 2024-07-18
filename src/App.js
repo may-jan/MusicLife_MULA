@@ -10,6 +10,7 @@ import Mypage from './pages/Mypage';
 import Swal from 'sweetalert2';
 import PlayLists from './pages/PlayLists';
 import LikeLists from './pages/LikeLists';
+import GetList from './hooks/GetList';
 
 function App() {
   const [searchResults, setSearchResults] = useState({});
@@ -63,6 +64,7 @@ function App() {
             <Route path='/music/:id' element={<Music />} />
             <Route path='/mypage' element={<Mypage />} />
             <Route path='/playlists' element={<PlayLists />} />
+            <Route path='/playlists/:id' element={<GetList />} />
             <Route path='/likelists' element={<LikeLists />} />
           </Routes>
         </BrowserRouter>
