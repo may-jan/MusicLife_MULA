@@ -24,17 +24,14 @@ const List = ({ shape, data }) => {
           <>
             {/* 플레이리스트 or 찜한 목록 */}
             <div className='List_albumImg'>
-              <img
-                src='https://cdnimg.melon.co.kr/resource/image/cds/musicstory/imgUrl20240226033008100.jpg'
-                alt='img'
-              />
+              <img src={data.album.images[0].url} alt='img' />
             </div>
             <div className='List_album_wrap List_album_wrap_paddingLeft '>
               <div className='List_albumName text_overflow'>
-                <TextFlow text={'곡 제목'} />
+                <TextFlow text={data.name} />
               </div>
               <div className='List_albumArtist text_overflow attachName'>
-                <TextFlow text={'가수이름'} />
+                <TextFlow text={data.album.artists} />
               </div>
             </div>
           </>
