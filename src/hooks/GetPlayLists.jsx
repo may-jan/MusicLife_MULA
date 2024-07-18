@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import GetList from './GetList';
+import '../styles/GetPlayLists.css';
+import TextFlow from '../utils/TextFlow';
 
 const GetPlayLists = () => {
   const token = sessionStorage.getItem('token');
-  const [playListID, setPlayListID] = useState([]);
   const [playListInfo, setPlayListInfo] = useState();
 
   const getPL = async () => {
@@ -14,49 +15,39 @@ const GetPlayLists = () => {
       })
       .then((res) => {
         const data = res.data;
-        const id = data.items.map((item) => item.id);
-        setPlayListID(id);
+        setPlayListInfo(data.items);
       })
       .catch((e) => {
-        console.log('GetPlayLists getPL 오류');
-      });
-  };
-
-  const getList = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/playlists/`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        const data = res.data;
-        setPlayListInfo({
-          plName: data.name,
-          plTotal: data.tracks.total,
-          plTracks: data.tracks.items,
-        });
-      })
-      .catch((e) => {
-        console.log('GetPlayLists getList 오류');
+        console.log('GetPlayLists 오류');
       });
   };
 
   useEffect(() => {
     getPL();
-    getList();
   }, []);
 
   return (
     playListInfo && (
       <div className='GetPlayLists'>
-        {playListID &&
-          playListID.map((id) => (
-            <div>
-              <div>플리 이름 : {playListInfo.plName}</div>
-              <div>{playListInfo.plTotal}곡</div>
-              <GetList id={id} />
-            </div>
-          ))}
-        <div></div>
+        {playListInfo.map((info) => {
+          return (
+            <Link to={info.id} key={info.id}>
+              <div className='GetPlayLists_wrap'>
+                <div className='GetPlayLists_img'>
+                  <img src={info.images[0].url} alt='img' />
+                </div>
+                <div className='GetPlayLists_listWrap'>
+                  <div className='GetPlayLists_listName text_overflow'>
+                    <TextFlow text={info.name} />
+                  </div>
+                  <div className='GetPlayLists_listTotal'>
+                    {info.tracks.total}곡
+                  </div>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     )
   );
