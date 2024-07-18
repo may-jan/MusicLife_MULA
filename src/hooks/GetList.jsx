@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { IoIosArrowBack } from 'react-icons/io';
 import axios from 'axios';
+import List from '../components/List';
+import CommonListsHeader from '../components/CommonListsHeader';
 
-const GetList = ({ id }) => {
+const GetList = () => {
+  const { id } = useParams();
   const token = sessionStorage.getItem('token');
-  const [playListInfo, setPlayListInfo] = useState();
+  const [musicInfo, setMusicInfo] = useState();
+  const navigate = useNavigate();
+  const onCancel = () => {
+    navigate(-1);
+  };
 
   const getListInfo = async () => {
     await axios
@@ -12,8 +21,7 @@ const GetList = ({ id }) => {
       })
       .then((res) => {
         const data = res.data;
-        console.log(data);
-        setPlayListInfo({
+        setMusicInfo({
           plName: data.name,
           plTotal: data.tracks.total,
           plTracks: data.tracks.items,
@@ -28,36 +36,27 @@ const GetList = ({ id }) => {
     getListInfo();
   }, []);
 
+  const wrapStyle = { width: '360px', position: 'relative' };
+
   return (
-    playListInfo && (
-      <div className='GetList'>
-        <div>
-          {playListInfo.plTracks.map((track) => {
+    musicInfo && (
+      <div className='GetList' style={wrapStyle}>
+        <div className='GetList_listHeader'>
+          <CommonListsHeader title={'플레이리스트'} data={musicInfo} />
+        </div>
+        <div className='GetList_listWrap'>
+          {musicInfo.plTracks.map((track, idx) => {
             return (
-              <div key={track.added_at}>
-                <hr />
-                <span>가수이름 : {track.track.album.artists[0].name}</span>
-                <br />
-                <span>앨범 ID :{track.track.album.id}</span>
-                <br />
-                <span>곡 ID :{track.track.id}</span>
-                <br />
-                <span>곡 제목 : {track.track.name}</span>
-                <br />
-                <div>
-                  곡 이미지 :
-                  <img
-                    src={track.track.album.images[0].url}
-                    width='50'
-                    alt='img'
-                  />
-                </div>
-                <br />
-                <hr />
-              </div>
+              <Link
+                to={`/music/${track.track.id}`}
+                key={`${track.added_at}_${idx}`}
+              >
+                <List data={track.track} />
+              </Link>
             );
           })}
         </div>
+        <IoIosArrowBack className='backBtn' onClick={onCancel} />
       </div>
     )
   );
