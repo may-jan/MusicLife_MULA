@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .CommonListsHeader_icon {
@@ -18,4 +19,17 @@
   line-height: 30px;
   font-size: var(--font-size-l);
   font-weight: bold;
+}
+
+.CommonListsHeader_listName {
+  width: 250px;
+  text-align: center;
+}
+
+.CommonListsHeader_listTotal {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: var(--font-size-s);
+  color: var(--gray-color);
 }
