@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import List from '../components/List';
 import '../styles/AlbumTracks.css';
-import TextFlow from '../utils/TextFlow';
 
 const AlbumTracks = () => {
   const { id } = useParams();
@@ -35,19 +35,7 @@ const AlbumTracks = () => {
           trackList.map((track) => {
             return (
               <Link to={`/music/${track.id}`} key={track.id}>
-                <div className='AlbumTracks_container'>
-                  <div className='AlbumTracks_trackNum'>
-                    {track.track_number}
-                  </div>
-                  <div className='AlbumTracks_album_wrap'>
-                    <div className='AlbumTracks_albumName text_overflow'>
-                      <TextFlow text={track.name} />
-                    </div>
-                    <div className='AlbumTracks_albumArtist text_overflow attachName'>
-                      <TextFlow text={track.artists} />
-                    </div>
-                  </div>
-                </div>
+                <List shape={'AlbumTracks'} data={track} />
               </Link>
             );
           })}

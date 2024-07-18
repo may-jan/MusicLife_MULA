@@ -1,5 +1,6 @@
 .btn_login,
-.btn_logout {
+.btn_logout,
+.btn_mypage {
   width: 30px;
   height: 30px;
   display: flex;
@@ -11,9 +12,17 @@
 }
 
 .icon_login,
-.icon_logout {
+.icon_logout,
+.icon_mypage {
   width: 100%;
   height: 100%;
   color: var(--main-color);
   cursor: pointer;
+}
+
+.loginHeader {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
