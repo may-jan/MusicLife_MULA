@@ -1,6 +1,9 @@
 .GetPlayLists {
-  display: flex;
-  justify-content: space-evenly;
+  width: 335px;
+  margin: 0 auto;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .GetPlayLists_wrap {
