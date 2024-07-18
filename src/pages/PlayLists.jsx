@@ -15,11 +15,6 @@ const PlayLists = () => {
   return (
     <div className='PlayLists' style={wrapStyle}>
       <CommonListsHeader title={'플레이리스트'} />
-      <div className='PlayLists_listWrap'>
-        <ul>
-          <li></li>
-        </ul>
-      </div>
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
       <GetPlayLists />
     </div>
