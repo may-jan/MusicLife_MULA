@@ -2,6 +2,7 @@ import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import CommonListsHeader from '../components/CommonListsHeader';
+import GetPlayLists from '../hooks/GetPlayLists';
 
 const PlayLists = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const PlayLists = () => {
         </ul>
       </div>
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
+      <GetPlayLists />
     </div>
   );
 };
