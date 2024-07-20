@@ -15,7 +15,6 @@ const Mypage = () => {
 
   const token = sessionStorage.getItem('token');
   const [userName, setUserName] = useState('');
-  const [userID, setUserID] = useState('');
   const [userImg, setUserImg] = useState('');
 
   // 사용자 프로필 가져오기
@@ -27,7 +26,6 @@ const Mypage = () => {
       .then((res) => {
         const data = res.data;
         setUserName(data.display_name);
-        setUserID(data.id);
         setUserImg(data.images[1].url);
       })
       .catch((e) => {
