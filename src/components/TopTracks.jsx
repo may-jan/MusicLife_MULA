@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import DisplayAlbum from './DisplayAlbum';
+import GetTopTracks from '../utils/getTopTracks';
 
 const TopTracks = () => {
   const { id } = useParams();
-  const token = sessionStorage.getItem('token');
-  const [topTracks, setTopTracks] = useState([]);
-
-  const searchBestTracks = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/artists/${id}/top-tracks`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setTopTracks(res.data.tracks);
-      })
-      .catch((e) => {
-        console.log('TopTracks 에러');
-      });
-  };
-
-  useEffect(() => {
-    searchBestTracks();
-  }, []);
+  const topTracks = GetTopTracks(id);
 
   return (
     <div className='TopTracks'>

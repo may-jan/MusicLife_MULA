@@ -1,44 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
 import { MusicContext } from '../context/Context';
 import '../styles/ArtistInfo.css';
 import TextFlow from '../utils/TextFlow';
-import axios from 'axios';
+import GetArtistInfo from '../utils/getArtistInfo';
 
 const ArtistInfo = () => {
   const { id } = useParams();
+  const artistInfo = GetArtistInfo(id);
+
   const navigate = useNavigate();
   const onCancel = () => {
     navigate(-1);
   };
 
-  const token = sessionStorage.getItem('token');
   const musicContext = useContext(MusicContext);
-  const [artistInfo, setArtistInfo] = useState(null);
   const searchResults = JSON.parse(localStorage.getItem('searchResults'));
   const searchKey = localStorage.getItem('searchKey');
   musicContext.searchResults = searchResults;
   musicContext.searchKey = searchKey;
-
-  const getArtistInfo = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/artists/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setArtistInfo(res.data);
-      })
-      .catch((e) => {
-        console.log('ArtistInfo 에러');
-      });
-  };
-
-  useEffect(() => {
-    getArtistInfo();
-  }, [id]);
 
   return (
     <div className='ArtistInfo'>
