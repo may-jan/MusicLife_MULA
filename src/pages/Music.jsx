@@ -7,7 +7,7 @@ import { PiMusicNotesPlusFill } from 'react-icons/pi';
 import { IoIosHeart } from 'react-icons/io';
 import { IoIosHeartEmpty } from 'react-icons/io';
 import TextFlow from '../utils/TextFlow';
-import axios from 'axios';
+import GetMusicInfo from '../utils/getMusicInfo';
 import '../styles/Music.css';
 
 const Music = () => {
@@ -16,35 +16,13 @@ const Music = () => {
   const onCancel = () => {
     navigate(-1);
   };
-  const token = sessionStorage.getItem('token');
+
   const audioRef = useRef(null);
-  const [musicInfo, setMusicInfo] = useState({});
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
 
   // 음악정보 가져오기
-  const getMusicInfo = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/tracks/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        const data = res.data;
-        setMusicInfo({
-          albumImg: data.album.images[0].url,
-          trackName: data.name,
-          artistName: data.artists,
-          preview: data.preview_url,
-        });
-      })
-      .catch((e) => {
-        console.log('Music 오류');
-      });
-  };
-
-  useEffect(() => {
-    getMusicInfo();
-  }, []);
+  const musicInfo = GetMusicInfo(id);
 
   // 재생 플레이어
   useEffect(() => {
