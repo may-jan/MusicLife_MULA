@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import '../styles/RecommendPlaylists.css';
+import GetFeaturedPlayLists from '../utils/getFeaturedPlayLists';
 
 const RecommendPlaylists = () => {
   const token = sessionStorage.getItem('token');
-  const [playlists, setPlaylists] = useState([]);
-
-  const getPlaylist = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/browse/featured-playlists`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        params: { limit: 10 },
-      })
-      .then((res) => {
-        setPlaylists(res.data.playlists.items);
-      })
-      .catch((e) => {
-        console.log('RecommendPlaylists 에러');
-      });
-  };
-
-  useEffect(() => {
-    getPlaylist();
-  }, []);
+  const playlists = GetFeaturedPlayLists();
 
   return token ? (
     <div className='RecommendPlaylists'>

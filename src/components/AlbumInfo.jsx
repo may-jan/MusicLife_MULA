@@ -1,42 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
 import '../styles/AlbumInfo.css';
 import TextFlow from '../utils/TextFlow';
+import GetAlbumInfo from '../utils/getAlbumInfo';
 
 const AlbumInfo = () => {
   const { id } = useParams();
-  const token = sessionStorage.getItem('token');
+  const albumInfo = GetAlbumInfo(id);
+
   const navigate = useNavigate();
   const onCancel = () => {
     navigate(-1);
   };
-  const [albumInfo, setAlbumInfo] = useState({});
-
-  const getAlbumInfo = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/albums/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        const data = res.data;
-        setAlbumInfo({
-          albumImg: data.images[0].url,
-          albumName: data.name,
-          albumArtist: data.artists,
-        });
-      })
-      .catch((e) => {
-        console.log('AlbumInfo 에러');
-      });
-  };
-
-  useEffect(() => {
-    getAlbumInfo();
-  }, []);
 
   return (
     <div className='AlbumInfo'>

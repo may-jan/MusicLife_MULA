@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import DisplayAlbum from './DisplayAlbum';
+import GetAlbums from '../utils/getAlbums';
 
 const Albums = () => {
   const { id } = useParams();
-  const token = sessionStorage.getItem('token');
-  const [albums, setAlbums] = useState([]);
-
-  const searchAlbums = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/artists/${id}/albums`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setAlbums(res.data.items);
-      })
-      .catch((e) => {
-        console.log('Albums에러');
-      });
-  };
-
-  useEffect(() => {
-    searchAlbums();
-  }, []);
+  const albums = GetAlbums(id);
 
   // 앨범 최신순 정렬
   albums.sort(function (a, b) {
