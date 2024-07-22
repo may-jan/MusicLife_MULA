@@ -8,6 +8,8 @@ import { IoIosHeart } from 'react-icons/io';
 import { IoIosHeartEmpty } from 'react-icons/io';
 import TextFlow from '../utils/TextFlow';
 import GetMusicInfo from '../utils/getMusicInfo';
+import GetPlayLists from '../utils/getPlayLists';
+import ModalPlayList from '../components/ModalPlayList';
 import '../styles/Music.css';
 
 const Music = () => {
@@ -20,9 +22,13 @@ const Music = () => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 음악정보 가져오기
   const musicInfo = GetMusicInfo(id);
+
+  // 플레이리스트 정보 가져오기
+  const playLists = GetPlayLists();
 
   // 재생 플레이어
   useEffect(() => {
@@ -58,7 +64,7 @@ const Music = () => {
     setIsPlaying(!isPlaying);
   };
 
-  // 하트 버튼 (찜하기 되어있는 상태)
+  // 하트 버튼 (찜하기 되어있는 상태, 구현 미완성)
   const clickHeartBtn = () => {
     const test = window.confirm('찜한 목록에서 삭제하시겠습니까?');
     if (test) {
@@ -68,7 +74,7 @@ const Music = () => {
     }
   };
 
-  // 빈하트 버튼 (찜하기 안되어있는 상태)
+  // 빈하트 버튼 (찜하기 안되어있는 상태, 구현 미완성)
   const clickEmptyHeartBtn = () => {
     const test = window.confirm('찜한 목록에 추가하시겠습니까?');
     if (test) {
@@ -80,8 +86,7 @@ const Music = () => {
 
   // 플레이리스트 추가하기 버튼
   const clickAddMusicBtn = () => {
-    alert('플레이리스트에 추가되었습니다');
-    console.log('플레이리스트 추가 버튼 클릭');
+    setIsModalOpen(true);
   };
 
   return (
@@ -115,6 +120,7 @@ const Music = () => {
       </div>
 
       <div className='Music_btns'>
+        {/* 찜하기 버튼 구현 미완성 */}
         {/* <IoIosHeart className='icon_heart' onClick={clickHeartBtn} /> */}
         <IoIosHeartEmpty
           className='icon_emptyHeart'
@@ -124,6 +130,15 @@ const Music = () => {
           className='icon_addMusic'
           onClick={clickAddMusicBtn}
         />
+        {isModalOpen && (
+          <ModalPlayList
+            playLists={playLists}
+            musicInfo={musicInfo}
+            onClose={() => {
+              setIsModalOpen(false);
+            }}
+          />
+        )}
       </div>
 
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
