@@ -17,6 +17,7 @@ const GetMusicInfo = (id) => {
           trackName: data.name,
           artistName: data.artists,
           preview: data.preview_url,
+          uri: data.uri,
         });
       })
       .catch((e) => {
