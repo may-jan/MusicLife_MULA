@@ -10,6 +10,11 @@ const Login = () => {
   const REDIRECT_URI = 'https://musiclife-mula.netlify.app';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
+  const SCOPES = ['playlist-modify-public', 'playlist-modify-private'];
+
+  const authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${encodeURIComponent(
+    SCOPES.join(' ')
+  )}`;
 
   const [token, setToken] = useState('');
   useEffect(() => {
@@ -30,6 +35,10 @@ const Login = () => {
     setToken(token);
   }, []);
 
+  const login = () => {
+    window.location.href = authUrl;
+  };
+
   const logout = () => {
     setToken('');
     window.sessionStorage.removeItem('token');
@@ -40,12 +49,9 @@ const Login = () => {
     <div className='Login'>
       <div>
         {!token ? (
-          <a
-            className='btn_login'
-            href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
-          >
+          <button className='btn_login' onClick={login}>
             <BiSolidUser className='icon_login' />
-          </a>
+          </button>
         ) : (
           <div className='loginHeader'>
             <Link to='/mypage' className='btn_mypage'>
