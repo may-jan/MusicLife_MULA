@@ -27,7 +27,7 @@ const List = ({ shape, data }) => {
               <img src={data.album.images[0].url} alt='img' />
             </div>
             <div className='List_album_wrap List_album_wrap_paddingLeft '>
-              <div className='List_albumName text_overflow'>
+              <div className='List_albumName text_overflow PlayList_albumName'>
                 <TextFlow text={data.name} />
               </div>
               <div className='List_albumArtist text_overflow attachName'>
