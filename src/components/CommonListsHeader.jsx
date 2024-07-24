@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RiPlayListFill } from 'react-icons/ri';
 import { IoIosHeart } from 'react-icons/io';
 import TextFlow from '../utils/TextFlow';
 import '../styles/CommonListsHeader.css';
 
-const CommonListsHeader = ({ title, data }) => {
+const CommonListsHeader = ({ title, data, name }) => {
+  useEffect(() => {
+    if (name === 'PlayListDetail') {
+      data.plTotal = data && data.plTracks.length - 1;
+    }
+  }, [data]);
+
   return (
     <div className='CommonListsHeader'>
       {title === '플레이리스트' ? (
