@@ -59,6 +59,10 @@
   font-size: var(--font-size-m);
 }
 
+.List_albumName.PlayList_albumName {
+  width: 235px;
+}
+
 .List_albumArtist {
   height: 11px;
   line-height: 11px;

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { IoSearch } from 'react-icons/io5';
 import { MusicContext } from '../context/Context';
 import '../styles/SearchTab.css';
+import resultAlert from '../utils/resultAlert';
 
 const SearchTab = () => {
   const musicContext = useContext(MusicContext);
@@ -13,7 +14,7 @@ const SearchTab = () => {
     e.preventDefault();
 
     if (searchKey.replace(/(\s*)/g, '') === '') {
-      alert('검색어를 다시 입력하세요');
+      resultAlert('검색어를 다시 입력하세요', 'warning');
       setSearchKey('');
       return;
     } else {
