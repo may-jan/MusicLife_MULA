@@ -1,0 +1,20 @@
+.GetList_listWrap > div {
+  position: relative;
+}
+
+.List_removeBtn {
+  width: 30px;
+  height: 30px;
+  padding: 0px 5px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--main-color);
+  transition: 0.2s;
+}
+
+.List_removeBtn:hover {
+  color: rgb(255, 104, 104);
+  transition: 0.2s;
+}
