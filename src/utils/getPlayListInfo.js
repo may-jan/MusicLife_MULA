@@ -1,33 +1,23 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 
-const GetPlayListInfo = (id) => {
+const GetPlayListInfo = async (id) => {
   const token = sessionStorage.getItem('token');
-  const [musicInfo, setMusicInfo] = useState();
 
-  const getPlayListInfo = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/playlists/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        const data = res.data;
-        setMusicInfo({
-          plName: data.name,
-          plTotal: data.tracks.total,
-          plTracks: data.tracks.items,
-        });
-      })
-      .catch((e) => {
-        console.log('getPlayListInfo fn 오류');
-      });
-  };
-
-  useEffect(() => {
-    getPlayListInfo(id);
-  }, []);
-
-  return musicInfo;
+  try {
+    const res = await axios.get(`https://api.spotify.com/v1/playlists/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const data = res.data;
+    return {
+      plName: data.name,
+      plTotal: data.tracks.total,
+      plTracks: data.tracks.items,
+      plSnapshotID: data.snapshot_id,
+    };
+  } catch (e) {
+    console.log('getPlayListInfo fn 오류', e);
+    return null;
+  }
 };
 
 export default GetPlayListInfo;
