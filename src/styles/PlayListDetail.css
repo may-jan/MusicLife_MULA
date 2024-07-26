@@ -1,8 +1,10 @@
-.GetList_listWrap > div {
+.GetList_listWrap > div,
+.LikeLists_listWrap > div {
   position: relative;
 }
 
-.List_removeBtn {
+.List_removeBtn,
+.heart_removeBtn {
   width: 30px;
   height: 30px;
   padding: 0px 5px;
@@ -14,7 +16,8 @@
   transition: 0.2s;
 }
 
-.List_removeBtn:hover {
+.List_removeBtn:hover,
+.heart_removeBtn:hover {
   color: rgb(255, 104, 104);
   transition: 0.2s;
 }
