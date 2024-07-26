@@ -6,6 +6,7 @@ import CommonListsHeader from '../components/CommonListsHeader';
 import List from '../components/List';
 import askAlert from '../utils/askAlert';
 import resultAlert from '../utils/resultAlert';
+import '../styles/PlayListDetail.css';
 
 const LikeLists = () => {
   const navigate = useNavigate();
