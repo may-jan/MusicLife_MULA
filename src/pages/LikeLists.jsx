@@ -6,6 +6,7 @@ import CommonListsHeader from '../components/CommonListsHeader';
 import List from '../components/List';
 import askAlert from '../utils/askAlert';
 import resultAlert from '../utils/resultAlert';
+import GetLikeTracks from '../utils/getLikeTracks';
 import '../styles/PlayListDetail.css';
 
 const LikeLists = () => {
@@ -16,41 +17,7 @@ const LikeLists = () => {
 
   const wrapStyle = { width: '360px', position: 'relative' };
 
-  const testData = [
-    {
-      name: 'testName1',
-      album: {
-        artists: 'testArtist1',
-        images: [
-          {
-            url: 'https://i.scdn.co/image/ab67616d0000b2731e20be5a6bdfd2780516320a',
-          },
-        ],
-      },
-    },
-    {
-      name: 'testName2',
-      album: {
-        artists: 'testArtist2',
-        images: [
-          {
-            url: 'https://i.scdn.co/image/ab67616d0000b2731e20be5a6bdfd2780516320a',
-          },
-        ],
-      },
-    },
-    {
-      name: 'testName3',
-      album: {
-        artists: 'testArtist3',
-        images: [
-          {
-            url: 'https://i.scdn.co/image/ab67616d0000b2731e20be5a6bdfd2780516320a',
-          },
-        ],
-      },
-    },
-  ];
+  const likeTracks = GetLikeTracks();
 
   // 하트 취소 버튼 누를 때 함수
   const removeHeart = async () => {
@@ -68,14 +35,15 @@ const LikeLists = () => {
     <div className='LikeLists' style={wrapStyle}>
       <CommonListsHeader title={'찜한 목록'} />
       <div className='LikeLists_listWrap'>
-        {testData.map((data, idx) => (
-          <div key={`${data.name}_${idx}`}>
-            <Link to={'해당곡링크'}>
-              <List data={data} />
-            </Link>
-            <IoIosHeart className='heart_removeBtn' onClick={removeHeart} />
-          </div>
-        ))}
+        {likeTracks &&
+          likeTracks.map((track) => (
+            <div key={`${track.track.id}`}>
+              <Link to={`/music/${track.track.id}`}>
+                <List data={track.track} />
+                <IoIosHeart className='heart_removeBtn' onClick={removeHeart} />
+              </Link>
+            </div>
+          ))}
       </div>
 
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
