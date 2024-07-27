@@ -4,7 +4,7 @@ import resultAlert from './resultAlert';
 
 const AddPlayList = async (musicInfo, playListID, onClose) => {
   const token = sessionStorage.getItem('token');
-  const result = askAlert('추가하시겠습니까?');
+  const result = askAlert('플레이리스트에 추가하시겠습니까?');
 
   if (await result) {
     const res = await axios

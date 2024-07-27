@@ -4,7 +4,7 @@ import resultAlert from './resultAlert';
 
 const RemovePlayList = async ({ playListID, albumUri, plSnapshotID }) => {
   const token = sessionStorage.getItem('token');
-  const result = askAlert('삭제하시겠습니까?');
+  const result = askAlert('플레이리스트에서 삭제하시겠습니까?');
 
   if (await result) {
     try {
