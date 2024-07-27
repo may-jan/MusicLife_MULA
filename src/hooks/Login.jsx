@@ -10,7 +10,12 @@ const Login = () => {
   const REDIRECT_URI = 'https://musiclife-mula.netlify.app';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
-  const SCOPES = ['playlist-modify-public', 'playlist-modify-private'];
+  const SCOPES = [
+    'playlist-modify-public',
+    'playlist-modify-private',
+    'user-library-read',
+    'user-library-modify',
+  ];
 
   const authUrl = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${encodeURIComponent(
     SCOPES.join(' ')
