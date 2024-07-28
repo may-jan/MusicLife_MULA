@@ -10,6 +10,9 @@ import TextFlow from '../utils/TextFlow';
 import GetMusicInfo from '../utils/getMusicInfo';
 import GetPlayLists from '../utils/getPlayLists';
 import ModalPlayList from '../components/ModalPlayList';
+import AddLikeTrack from '../utils/addLikeTrack';
+import RemoveLikeTrack from '../utils/removeLikeTrack';
+import GetLikeTracks from '../utils/getLikeTracks';
 import '../styles/Music.css';
 
 const Music = () => {
@@ -18,6 +21,17 @@ const Music = () => {
   const onCancel = () => {
     navigate(-1);
   };
+
+  // 찜한 목록 가져오기
+  const [likeLists, setLikeLists] = useState([]);
+  useEffect(() => {
+    const fetchLikeTracks = async () => {
+      const data = await GetLikeTracks();
+      const idArr = data.tracks.map((list) => list.track.id);
+      setLikeLists(idArr);
+    };
+    fetchLikeTracks();
+  }, []);
 
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -64,24 +78,19 @@ const Music = () => {
     setIsPlaying(!isPlaying);
   };
 
-  // 하트 버튼 (찜하기 되어있는 상태, 구현 미완성)
-  const clickHeartBtn = () => {
-    const test = window.confirm('찜한 목록에서 삭제하시겠습니까?');
-    if (test) {
-      console.log('확인누름');
-    } else {
-      console.log('취소누름');
-    }
+  // 하트 버튼 (찜하기 되어있는 상태)
+  const clickHeartBtn = async () => {
+    const remove = await RemoveLikeTrack(id);
+    console.log(remove);
+    return remove
+      ? setLikeLists(likeLists.filter((listID) => listID !== id))
+      : '';
   };
 
-  // 빈하트 버튼 (찜하기 안되어있는 상태, 구현 미완성)
-  const clickEmptyHeartBtn = () => {
-    const test = window.confirm('찜한 목록에 추가하시겠습니까?');
-    if (test) {
-      console.log('확인누름');
-    } else {
-      console.log('취소누름');
-    }
+  // 빈하트 버튼 (찜하기 안되어있는 상태)
+  const clickEmptyHeartBtn = async () => {
+    const add = await AddLikeTrack(id);
+    return add ? setLikeLists((prev) => [...prev, id]) : '';
   };
 
   // 플레이리스트 추가하기 버튼
@@ -120,12 +129,14 @@ const Music = () => {
       </div>
 
       <div className='Music_btns'>
-        {/* 찜하기 버튼 구현 미완성 */}
-        {/* <IoIosHeart className='icon_heart' onClick={clickHeartBtn} /> */}
-        <IoIosHeartEmpty
-          className='icon_emptyHeart'
-          onClick={clickEmptyHeartBtn}
-        />
+        {likeLists && likeLists.includes(id) ? (
+          <IoIosHeart className='icon_heart' onClick={clickHeartBtn} />
+        ) : (
+          <IoIosHeartEmpty
+            className='icon_emptyHeart'
+            onClick={clickEmptyHeartBtn}
+          />
+        )}
         <PiMusicNotesPlusFill
           className='icon_addMusic'
           onClick={clickAddMusicBtn}
@@ -140,7 +151,6 @@ const Music = () => {
           />
         )}
       </div>
-
       <IoIosArrowBack className='backBtn' onClick={onCancel} />
     </div>
   );
