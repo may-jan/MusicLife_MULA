@@ -27,7 +27,7 @@ const ArtistInfo = () => {
         {artistInfo && artistInfo.images.length ? (
           <img src={artistInfo.images[0].url} alt='artistImg' />
         ) : (
-          <div className='artistInfo_no_img'>NO IMAGE</div>
+          <div className='ArtistInfo_noImg emptyImg'>NO IMAGE</div>
         )}
       </div>
       <div className='ArtistsInfo_shadow'></div>
