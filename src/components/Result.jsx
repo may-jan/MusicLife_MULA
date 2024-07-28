@@ -35,7 +35,7 @@ const Result = () => {
                     alt='artistImg'
                   />
                 ) : (
-                  <div className='Result_noImg'>NO IMAGE</div>
+                  <div className='Result_noImg emptyImg'>NO IMAGE</div>
                 )}
               </div>
               <div className='Result_artistName'>{artist.name}</div>
@@ -43,7 +43,9 @@ const Result = () => {
           </div>
         ));
       } else {
-        return <div className='Result_noResult'>검색 결과가 없습니다</div>;
+        return (
+          <div className='Result_noResult emptyData'>검색 결과가 없습니다</div>
+        );
       }
     }
   };

@@ -25,7 +25,7 @@ const RecommendPlaylists = () => {
       })}
     </div>
   ) : (
-    <h4 className='loginRequest'>로그인을 먼저 진행해주세요</h4>
+    <h4 className='loginRequest emptyData'>로그인을 먼저 진행해주세요</h4>
   );
 };
 

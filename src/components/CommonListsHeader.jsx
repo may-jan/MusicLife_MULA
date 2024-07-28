@@ -4,7 +4,7 @@ import { IoIosHeart } from 'react-icons/io';
 import TextFlow from '../utils/TextFlow';
 import '../styles/CommonListsHeader.css';
 
-const CommonListsHeader = ({ title, data, name }) => {
+const CommonListsHeader = ({ title, data, name, total }) => {
   useEffect(() => {
     if (name === 'PlayListDetail') {
       data.plTotal = data && data.plTracks.length - 1;
@@ -31,6 +31,7 @@ const CommonListsHeader = ({ title, data, name }) => {
         <>
           <IoIosHeart className='CommonListsHeader_icon' />
           <div className='CommonListsHeader_title'>찜한 목록</div>
+          <div className='CommonListsHeader_listTotal'>{total}곡</div>
         </>
       )}
     </div>

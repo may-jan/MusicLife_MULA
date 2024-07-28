@@ -1,5 +1,4 @@
-.RecommendPlaylists,
-.loginRequest {
+.RecommendPlaylists {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,9 +34,4 @@
 .RecommendPlaylists_playlistDes {
   font-size: var(--font-size-m);
   color: var(--gray-color);
-}
-
-.loginRequest {
-  height: 450px;
-  font-size: var(--font-size-l);
 }
