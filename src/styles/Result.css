@@ -27,9 +27,6 @@
   height: 300px;
   background-color: var(--gray-color);
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .Result_artistName {
@@ -37,12 +34,4 @@
   margin-top: 10px;
   text-align: center;
   font-size: var(--font-size-m);
-}
-
-.Result_noResult {
-  padding: 0 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
