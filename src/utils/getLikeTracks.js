@@ -1,28 +1,23 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 
-const GetLikeTracks = () => {
+const GetLikeTracks = async () => {
   const token = sessionStorage.getItem('token');
-  const [likeTracks, setLikeTracks] = useState([]);
 
-  const getLikeTracks = async () => {
-    await axios
-      .get(`https://api.spotify.com/v1/me/tracks`, {
-        headers: { Authorization: `Bearer ${token}` },
-        params: { limit: 50 },
-      })
-      .then((res) => {
-        setLikeTracks(res.data.items);
-      })
-      .catch((e) => {
-        console.log('getLikeTracks fn 오류');
-      });
-  };
-  useEffect(() => {
-    getLikeTracks();
-  }, []);
-
-  return likeTracks;
+  try {
+    const res = await axios.get(`https://api.spotify.com/v1/me/tracks`, {
+      headers: { Authorization: `Bearer ${token}` },
+      // 페이지 설정 수정 예정
+      params: { limit: 50, offset: 0 },
+    });
+    const data = res.data;
+    return {
+      tracks: data.items,
+      total: data.total,
+    };
+  } catch (e) {
+    console.log('getLikeTracks fn 오류', e);
+    return null;
+  }
 };
 
 export default GetLikeTracks;
