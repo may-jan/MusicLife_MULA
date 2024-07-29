@@ -64,3 +64,21 @@ body {
 .attachName span:last-child::after {
   content: '';
 }
+
+.emptyData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  font-size: var(--font-size-l);
+}
+
+.emptyImg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-color);
+  background-color: #fff;
+}
