@@ -28,6 +28,7 @@ const CreatePlayList = async (userID) => {
         )
         .then((res) => {
           resultAlert('플레이리스트가 생성되었습니다', 'success');
+          window.location.reload();
         })
         .catch((e) => {
           resultAlert('플레이리스트 생성에 실패하였습니다', 'error');
