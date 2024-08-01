@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/PlayList.css';
 import TextFlow from '../utils/TextFlow';
 import GetPlayLists from '../utils/getPlayLists';
 
 const PlayList = () => {
-  const playLists = GetPlayLists();
+  const [playLists, setPlayLists] = useState(null);
+
+  useEffect(() => {
+    const fetchPlayLists = async () => {
+      const data = await GetPlayLists();
+      setPlayLists(data);
+    };
+    fetchPlayLists();
+  }, []);
 
   return playLists && playLists.length !== 0 ? (
     <div className='PlayList'>
