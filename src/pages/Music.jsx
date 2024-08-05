@@ -111,7 +111,7 @@ const Music = () => {
           <TextFlow text={musicInfo.trackName} />
         </div>
         <div className='Music_artistName text_overflow attachName'>
-          <TextFlow text={musicInfo.artistName} />
+          <TextFlow text={musicInfo.artistName} type='artistName' />
         </div>
       </div>
 
