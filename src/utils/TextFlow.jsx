@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/TextFlow.css';
 
 const TextFlow = ({ text, type }) => {
@@ -31,6 +32,16 @@ const TextFlow = ({ text, type }) => {
             return <span key={gen}>{gen}</span>;
           })
         : text;
+    } else if (type === 'artistName') {
+      return text && Array.isArray(text)
+        ? text.map((artist) => {
+            return (
+              <span key={artist.uri}>
+                <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
+              </span>
+            );
+          })
+        : '';
     } else {
       return text && Array.isArray(text)
         ? text.map((txt) => {

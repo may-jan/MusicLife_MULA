@@ -1,0 +1,9 @@
+.icon_createPlayList {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  transform: translateX(290px);
+  cursor: pointer;
+  z-index: 1;
+}
